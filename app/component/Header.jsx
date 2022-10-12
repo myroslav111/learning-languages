@@ -1,18 +1,17 @@
-import React from 'react'
-import styles from '../../styles/Header.module.scss'
+import React from 'react';
+import styles from '../../styles/Header.module.scss';
 
-const Header = ({children}) => {
+const Header = ({ children }) => {
   return (
     <header>
-    {/* <!-- Navbar --> */}
-    <nav className={styles.nav}>
-        <div className={styles.container}>
-            <div className={styles.navbar}>{children}
-            </div>
+      {/* <!-- Navbar --> */}
+      <nav className={styles.nav}>
+        <div className="container">
+          <div className={styles.navbar}>{children}</div>
         </div>
-    </nav>
-</header>
-  )
-}
+      </nav>
+    </header>
+  );
+};
 
-export default Header
+export default Header;
