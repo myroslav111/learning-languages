@@ -1,0 +1,7 @@
+.mainWrapp {
+  padding: 100px 0;
+  height: 100vh;
+  background: -webkit-gradient(linear, left top, right top, color-stop(45%, #fe9400), to(#ffc800));
+  background: linear-gradient(90deg, #fe9400 45%, #ffc800 100%);
+}
+/*# sourceMappingURL=MainContent.module.css.map */
