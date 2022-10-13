@@ -15,7 +15,7 @@ const PageCards = () => {
         <AvatarBlock />
       </Header>
 
-      <MainContent>
+      <MainContent bg="radial-gradient(circle, rgba(63,94,251,0.9895308465182948) 0%, rgba(208,252,70,0.08196782130821079) 100%)">
         <Heading tag="h1" text="I am cards page" />
       </MainContent>
 

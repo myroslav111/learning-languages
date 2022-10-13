@@ -15,7 +15,7 @@ const PageTranslator = () => {
         <AvatarBlock />
       </Header>
 
-      <MainContent>
+      <MainContent bg="white">
         <Heading tag="h1" text="I am translator" />
       </MainContent>
 
