@@ -3,7 +3,8 @@
   bottom: 0;
   width: 100vw;
   height: 80px;
-  background-color: greenyellow;
+  background-color: white;
+  padding-top: 10px;
   .footerWrapp {
     overflow: hidden;
   }
@@ -12,7 +13,16 @@
     display: flex;
     width: 100%;
     justify-content: space-between;
-    padding-top: 15px;
-    padding-bottom: 15px;
+    // padding-top: 15px;
+    // padding-bottom: 15px;
+
+    .btnWrapp {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      span {
+        padding-top: 8px;
+      }
+    }
   }
 }
