@@ -3,9 +3,9 @@ import styles from '../../styles/Header.module.scss';
 
 const Header = ({ children }) => {
   return (
-    <header>
+    <header className={styles.headerWrapp}>
       {/* <!-- Navbar --> */}
-      <nav className={styles.nav}>
+      <nav>
         <div className="container">
           <div className={styles.navbar}>{children}</div>
         </div>

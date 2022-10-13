@@ -1,13 +1,18 @@
-// Footer
-.footerBacground {
-  overflow: hidden;
+.footerSection {
+  position: absolute;
+  bottom: 0;
+  width: 100vw;
+  height: 80px;
   background-color: greenyellow;
-}
+  .footerWrapp {
+    overflow: hidden;
+  }
 
-.footer {
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
-  padding-top: 15px;
-  padding-bottom: 15px;
+  .footer {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
 }

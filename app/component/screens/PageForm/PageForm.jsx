@@ -1,26 +1,24 @@
-import React from 'react';
 import Footer from '../../Footer';
 import Header from '../../header';
 
 import Heading from '../../layout/Heading';
+import MainContent from '../../MainContent';
+import ButtonNavigate from '../../ui/ButtonNavigate';
 
 const PageForm = () => {
   return (
     <div>
       <Header>
         <Heading tag="h1" text="I am header" />
-        <button>lofoo</button>
-        <button>lofoo</button>
       </Header>
 
-      <main>ifsgisj</main>
+      <MainContent>
+        <Heading tag="h1" text="I am main" />
+      </MainContent>
 
       <Footer>
-        <Heading tag="h2" text="I am footer" />
-        <button>lofoo</button>
-        <button>lofoo</button>
-        <button>lofoo</button>
-        <button>lofoo</button>
+        {/* <Heading tag="h1" text="I am footer" /> */}
+        <ButtonNavigate>hj</ButtonNavigate>
       </Footer>
     </div>
   );
