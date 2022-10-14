@@ -18,8 +18,8 @@ const Error = () => {
       <Head>
         <title>Error</title>
       </Head>
-      <Heading text={'404'} />
-      <Heading tag="h2" text={'Something is going wrong...'} />
+      <Heading color="red" fontSize="3em" text={'404'} />
+      <Heading color="grey" fontSize="2em" tag="h2" text={'Something is going wrong...'} />
     </div>
   );
 };
