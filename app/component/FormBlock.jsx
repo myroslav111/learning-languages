@@ -1,7 +1,8 @@
 import React from 'react';
+import styles from '../../styles/FormBlock.module.scss';
 
 const FormBlock = ({ children }) => {
-  return <form>{children}</form>;
+  return <form className={styles.form}>{children}</form>;
 };
 
 export default FormBlock;
