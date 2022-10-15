@@ -1,0 +1,62 @@
+.card {
+  perspective: 150rem;
+  height: 20rem;
+  width: 30rem;
+  position: relative;
+
+  .front {
+    perspective: 150rem;
+    align-items: center;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    background-color: #1c1c1c;
+    border-radius: 3px;
+    box-shadow: 0 1.5rem 4rem rgb(0 0 0 / 40%);
+    display: flex;
+    font-size: 30px;
+    height: 15rem;
+    justify-content: center;
+    margin: 20px auto auto;
+    max-width: 500px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    transition: all 1.8s ease;
+    width: 90%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: rotateY(0deg);
+  }
+  &:hover .front {
+    transform: rotateY(-180deg);
+  }
+
+  .back {
+    perspective: 150rem;
+    align-items: center;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    background-color: #1c1c1c;
+    border-radius: 3px;
+    box-shadow: 0 1.5rem 4rem rgb(0 0 0 / 40%);
+    display: flex;
+    font-size: 30px;
+    height: 15rem;
+    justify-content: center;
+    margin: 20px auto auto;
+    max-width: 500px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    transition: all 1.8s ease;
+    width: 90%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: rotateY(180deg);
+  }
+  &:hover .back {
+    transform: rotateY(0deg);
+  }
+}

@@ -5,7 +5,10 @@ import MainContent from '../../MainContent';
 import ButtonNavigate from '../../ui/ButtonNavigate';
 import { footerBtnProps } from '../../ui/footerBtnProps';
 import styles from '../../../../styles/Footer.module.scss';
+import stylesMainSection from '../../../../styles/MainContentCard.module.scss';
+import stylesCard from '../../../../styles/Card.module.scss';
 import AvatarBlock from '../../AvatarBlock';
+import Card from '../../Card';
 
 const PageCards = () => {
   return (
@@ -15,8 +18,14 @@ const PageCards = () => {
         <AvatarBlock />
       </Header>
 
-      <MainContent bg="radial-gradient(circle, rgba(63,94,251,0.9895308465182948) 0%, rgba(208,252,70,0.08196782130821079) 100%)">
+      <MainContent
+        st={stylesMainSection.wrapp}
+        bg="radial-gradient(circle, rgba(63,94,251,0.9895308465182948) 0%, rgba(208,252,70,0.08196782130821079) 100%)"
+      >
         <Heading tag="h1" text="I am cards page" />
+        <div className={stylesCard.card}>
+          <Card textForeign="en" textTranslation="ua" />
+        </div>
       </MainContent>
 
       <Footer>
