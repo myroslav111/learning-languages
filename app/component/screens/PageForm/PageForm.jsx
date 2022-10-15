@@ -10,6 +10,8 @@ import AvatarBlock from '../../AvatarBlock';
 import FormBlock from '../../FormBlock';
 import Input from '../../ui/Input';
 import Button from '../../ui/Button';
+import stylesBtn from '../../../../styles/Button.module.scss';
+
 
 const PageForm = () => {
   return (
@@ -34,7 +36,7 @@ const PageForm = () => {
         <FormBlock>
           <Input type="text" text="EN" placeholder="введіть слово" />
           <Input type="text" text="UA" placeholder="введіть переклад" />
-          <Button type="button">Додати слово</Button>
+          <Button styles={stylesBtn.button} type="button">Додати слово</Button>
         </FormBlock>
       </MainContent>
 
