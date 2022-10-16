@@ -1,20 +1,19 @@
 @import './vars.scss';
 
-.containerBtnWordPagination{
-    display: flex;
-    padding: 10px;
-    margin-top: 500px;
-    justify-content: space-evenly;
-    gap: 20px;
+.containerBtnWordPagination {
+  display: flex;
+  padding: 10px;
+  margin-top: 300px;
+  justify-content: space-evenly;
+  gap: 20px;
 
-    @media (min-width: $breakpoint992) {
-            gap: 80px;
-        }
-
+  @media (min-width: $breakpoint992) {
+    gap: 80px;
+  }
 }
 .wrapper {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
