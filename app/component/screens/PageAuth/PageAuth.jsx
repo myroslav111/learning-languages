@@ -5,7 +5,7 @@ import Heading from "../../layout/Heading";
 import MainContent from "../../MainContent";
 import ButtonNavigate from "../../ui/ButtonNavigate";
 import { footerBtnProps } from "../../ui/footerBtnProps";
-import {btnWrapp} from '../../../../styles/Footer.module.scss';
+import { btnWrapp } from '../../../../styles/Footer.module.scss';
 
 
 const PageAuth = () => {

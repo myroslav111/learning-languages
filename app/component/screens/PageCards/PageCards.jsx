@@ -12,11 +12,11 @@ import Button from '../../ui/Button';
 import ButtonNavigate from '../../ui/ButtonNavigate';
 import { footerBtnProps } from '../../ui/footerBtnProps';
 import { btnPaginationProps } from '../../ui/buttonPaginationProps';
-import {btnWrapp} from '../../../../styles/Footer.module.scss';
-import {wrapp} from '../../../../styles/MainContentCard.module.scss';
-import {card} from '../../../../styles/Card.module.scss';
-import {wrapper, containerBtnWordPagination} from '../../../../styles/ContainerBtnWordPagination.module.scss';
-import {soundBtn, deleteBtn, removeBtn, switchLangBtn, button} from '../../../../styles/Button.module.scss';
+import { btnWrapp } from '../../../../styles/Footer.module.scss';
+import { wrapp } from '../../../../styles/MainContentCard.module.scss';
+import { card } from '../../../../styles/Card.module.scss';
+import { wrapper, containerBtnWordPagination } from '../../../../styles/ContainerBtnWordPagination.module.scss';
+import { soundBtn, deleteBtn, removeBtn, switchLangBtn, button } from '../../../../styles/Button.module.scss';
 
 
 const PageCards = () => {
@@ -27,10 +27,7 @@ const PageCards = () => {
         <AvatarBlock />
       </Header>
 
-      <MainContent
-        stylesProp={wrapp}
-        bg="radial-gradient(circle, rgba(63,94,251,0.9895308465182948) 0%, rgba(208,252,70,0.08196782130821079) 100%)"
-      >
+      <MainContent stylesProp={wrapp}>
         <Heading tag="h1" text="Картка" />
         <div className={card}>
           <Card textForeign="en" textTranslation="ua">

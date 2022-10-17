@@ -1,6 +1,6 @@
-const MainContent = ({ stylesProp, bg, children }) => {
+const MainContent = ({ stylesProp,  children }) => {
   return (
-    <main className={stylesProp} style={{ background: `${bg}` }}>
+    <main className={stylesProp}>
       <div>
         <div className="container">
           <div>{children}</div>

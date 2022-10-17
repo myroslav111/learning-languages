@@ -1,13 +1,13 @@
 import Heading from './layout/Heading';
 import Image from 'next/image';
 import image from '../../public/favicon.ico';
-import stylesAvatarBlock from '../../styles/AvatarBlock.module.scss';
+import { wrapper, img } from '../../styles/AvatarBlock.module.scss';
 
 
 const AvatarBlock = () => {
   return (
-    <div className={stylesAvatarBlock.wrapper}>
-      <div className={stylesAvatarBlock.img}>
+    <div className={wrapper}>
+      <div className={img}>
         <Image
           src={image}
           width={35}

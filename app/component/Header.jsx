@@ -1,13 +1,13 @@
-import stylesHeader from '../../styles/Header.module.scss';
+import { headerWrapp, navbar } from '../../styles/Header.module.scss';
 
 
 const Header = ({ children }) => {
   return (
-    <header className={stylesHeader.headerWrapp}>
+    <header className={headerWrapp}>
       {/* <!-- Navbar --> */}
       <nav>
         <div className="container">
-          <div className={stylesHeader.navbar}>{children}</div>
+          <div className={navbar}>{children}</div>
         </div>
       </nav>
     </header>
