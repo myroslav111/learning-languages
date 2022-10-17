@@ -2,15 +2,16 @@ import Footer from '../../Footer';
 import Header from '../../header';
 import Heading from '../../layout/Heading';
 import MainContent from '../../MainContent';
-import ButtonNavigate from '../../ui/ButtonNavigate';
-import { footerBtnProps } from '../../ui/footerBtnProps';
-import styles from '../../../../styles/Footer.module.scss';
-import stylesMainSection from '../../../../styles/MainContentForm.module.scss';
 import AvatarBlock from '../../AvatarBlock';
 import FormBlock from '../../FormBlock';
 import Input from '../../ui/Input';
 import Button from '../../ui/Button';
+import ButtonNavigate from '../../ui/ButtonNavigate';
+import { footerBtnProps } from '../../ui/footerBtnProps';
+import {btnWrapp} from '../../../../styles/Footer.module.scss';
+import stylesMainSection from '../../../../styles/MainContentForm.module.scss';
 import stylesBtn from '../../../../styles/Button.module.scss';
+import stylesInput from '../../../../styles/Input.module.scss';
 
 
 const PageForm = () => {
@@ -20,13 +21,13 @@ const PageForm = () => {
         <Heading
           fontSize="1em"
           tag="h1"
-          text="Сторінка додавання слова"
+          text="Додавання слова"
           color="white"
         />
         <AvatarBlock />
       </Header>
 
-      <MainContent st={stylesMainSection.mainWrapp}>
+      <MainContent stylesProp={stylesMainSection.mainWrapp}>
         <Heading
           fontSize="2em"
           color="black"
@@ -34,22 +35,23 @@ const PageForm = () => {
           text="Додайте слово для вивчення!"
         />
         <FormBlock>
-          <Input type="text" text="EN" placeholder="введіть слово" />
-          <Input type="text" text="UA" placeholder="введіть переклад" />
-          <Button styles={stylesBtn.button} type="button">Додати слово</Button>
+          <Input stylesProps={stylesInput} type="text" text="EN" placeholder="введіть слово" />
+          <Input stylesProps={stylesInput} type="text" text="UA" placeholder="введіть переклад" />
+          <Button stylesProp={stylesBtn.button} type="button">Додати слово</Button>
         </FormBlock>
       </MainContent>
 
-      <Footer>
-        {footerBtnProps.map(btn => (
-          <div key={btn.id} className={styles.btnWrapp}>
-            <ButtonNavigate href={btn.path}>{btn.icon}</ButtonNavigate>
-            <Heading tag={btn.tag} text={btn.text} />
+       <Footer>
+        {footerBtnProps.map(({id, path, icon, tag, text }) => (
+          <div key={id} className={btnWrapp}>
+            <ButtonNavigate href={path}>{icon}</ButtonNavigate>
+            <Heading tag={tag} text={text} />
           </div>
         ))}
-      </Footer>
+        </Footer>
     </div>
   );
 };
+
 
 export default PageForm;

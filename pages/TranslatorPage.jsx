@@ -1,6 +1,7 @@
 import PageTranslator from '../app/component/screens/PageTranslator/PageTranslater';
 import Head from 'next/head';
 
+
 const TranslatorPage = () => {
   return (
     <div>
@@ -13,5 +14,6 @@ const TranslatorPage = () => {
     </div>
   );
 };
+
 
 export default TranslatorPage;

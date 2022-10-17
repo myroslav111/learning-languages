@@ -3,6 +3,7 @@ import { AiOutlineArrowLeft } from 'react-icons/ai';
 import { AiOutlineArrowRight } from 'react-icons/ai';
 import { AiOutlineDoubleRight } from 'react-icons/ai';
 
+
 export const btnPaginationProps = [
   {
     icon: <AiOutlineDoubleLeft style={{ color: '#0300ff', height: "2em", width: "2em" }} />,

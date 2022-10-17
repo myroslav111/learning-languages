@@ -1,34 +1,76 @@
+import { AiOutlineSwap } from 'react-icons/ai';
 import Footer from '../../Footer';
 import Header from '../../header';
 import Heading from '../../layout/Heading';
 import MainContent from '../../MainContent';
+import AvatarBlock from '../../AvatarBlock';
+import Button from '../../ui/Button';
+import Textarea from '../../ui/Textarea';
 import ButtonNavigate from '../../ui/ButtonNavigate';
 import { footerBtnProps } from '../../ui/footerBtnProps';
-import styles from '../../../../styles/Footer.module.scss';
-import AvatarBlock from '../../AvatarBlock';
+import {btnWrapp} from '../../../../styles/Footer.module.scss';
+import stylesBtn from '../../../../styles/Button.module.scss';
+import stylesTextarea from '../../../../styles/Textarea.module.scss';
+import stylesTranslator from '../../../../styles/Translator.module.scss';
+
 
 const PageTranslator = () => {
   return (
     <div>
       <Header>
-        <Heading tag="h1" text="I am header" color="white" />
+        <Heading tag="h1" text="Перекладач" color="white" />
         <AvatarBlock />
       </Header>
 
       <MainContent bg="white">
-        <Heading tag="h1" text="I am translator" />
+        
+        <div className={stylesTranslator.wrapper}>
+                   
+          <div>
+            {["введіть текст", "тут буде переклад"].map(text => <Textarea stylesProp={stylesTextarea} placeholder={text}>
+            </Textarea> )}            
+          </div>
+          
+
+          <div className={stylesTranslator.selects}>
+            <select name="select">
+              <option value="en" selected>EN</option>
+              <option value="de">DE</option>
+              <option value="ua">UA</option>
+            </select>
+
+            <Button stylesProp={stylesBtn.button} >
+              <AiOutlineSwap className={ stylesBtn.iconSwitchLangTranslator } />
+            </Button>
+
+            <select name="select">
+              <option value="en">EN</option>
+              <option value="de">DE</option>
+              <option value="ua" selected>UA</option>
+            </select>
+          </div>
+
+          <div className={stylesTranslator.btnWrapper}>
+            <Button type="button" widthbtn="95px" stylesProp={stylesBtn.button}>скинути</Button>
+            <Button type="button" widthbtn="95px" stylesProp={stylesBtn.button}>перекласти</Button>
+          </div>
+
+          
+
+        </div>
       </MainContent>
 
-      <Footer>
-        {footerBtnProps.map(btn => (
-          <div key={btn.id} className={styles.btnWrapp}>
-            <ButtonNavigate href={btn.path}>{btn.icon}</ButtonNavigate>
-            <Heading tag={btn.tag} text={btn.text} />
+       <Footer>
+        {footerBtnProps.map(({id, path, icon, tag, text }) => (
+          <div key={id} className={btnWrapp}>
+            <ButtonNavigate href={path}>{icon}</ButtonNavigate>
+            <Heading tag={tag} text={text} />
           </div>
         ))}
-      </Footer>
+        </Footer>
     </div>
   );
 };
+
 
 export default PageTranslator;

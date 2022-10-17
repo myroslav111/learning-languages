@@ -1,14 +1,11 @@
-import stylesInput from '../../../styles/Input.module.scss';
-
-
-const Input = ({ text, placeholder, type }) => {
+const Input = ({ stylesProps, text, placeholder, type }) => {
   return (
-    // временно className={stylesInput.label}
-    <label className={stylesInput.label}>
+    <label className={stylesProps.label}>
       {text}
-      <input className={stylesInput.input} type={type} placeholder={placeholder} />
+      <input className={stylesProps.input} type={type} placeholder={placeholder} />
     </label>
   );
 };
+
 
 export default Input;

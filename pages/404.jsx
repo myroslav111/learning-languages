@@ -4,6 +4,7 @@ import Heading from '../app/component/layout/Heading';
 import Head from 'next/head';
 import styles from '../styles/404.module.scss';
 
+
 const Error = () => {
   const router = useRouter();
 
@@ -23,5 +24,6 @@ const Error = () => {
     </div>
   );
 };
+
 
 export default Error;
