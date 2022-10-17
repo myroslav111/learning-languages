@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600&display=swap');
+
+.wrapper {
+    padding: 15px;
+    width: 100%;
+    position: relative;
+}
+
+
+.textarea {
+    font-family: Caveat, cursive;
+    height: 150px;
+    overflow: hidden;
+    font-size: 30px;
+    border: none;
+    outline: none;
+    width: 100%;
+    border-radius: 8px;    
+}
+
+.icon {
+    position: absolute;
+    bottom:15px;
+    left:15px;
+}

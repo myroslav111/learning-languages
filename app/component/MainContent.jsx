@@ -1,9 +1,6 @@
-import React from 'react';
-// import styles from '../../styles/MainContentForm.module.scss';
-// className={styles.mainWrapp}
-const MainContent = ({ st, bg, children }) => {
+const MainContent = ({ stylesProp, bg, children }) => {
   return (
-    <main className={st} style={{ background: `${bg}` }}>
+    <main className={stylesProp} style={{ background: `${bg}` }}>
       <div>
         <div className="container">
           <div>{children}</div>
@@ -12,5 +9,6 @@ const MainContent = ({ st, bg, children }) => {
     </main>
   );
 };
+
 
 export default MainContent;

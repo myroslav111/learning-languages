@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import PageCards from '../app/component/screens/PageCards/PageCards';
 
+
 const CardsPage = () => {
   return (
     <div>
@@ -13,5 +14,6 @@ const CardsPage = () => {
     </div>
   );
 };
+
 
 export default CardsPage;

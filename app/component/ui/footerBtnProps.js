@@ -4,13 +4,14 @@ import { AiOutlineTranslation } from 'react-icons/ai';
 import { AiOutlineImport } from 'react-icons/ai';
 import { AiOutlineHome } from 'react-icons/ai';
 
+
 export const footerBtnProps = [
   {
     icon: <AiOutlineHome style={{ color: '#0300ff' }} />,
     tag: 'span',
     text: 'Home',
     id: '1',
-    path: '/',
+    path: '/AuthPage',
   },
   {
     icon: <AiFillPlusCircle style={{ color: 'green' }} />,
