@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Heading from '../app/component/layout/Heading';
 import Head from 'next/head';
-import styles from '../styles/404.module.scss';
+import { wrapper } from '../styles/404.module.scss';
 
 
 const Error = () => {
@@ -15,12 +15,12 @@ const Error = () => {
   }, [router]);
 
   return (
-    <div className={styles.wrapper}>
+    <div className={wrapper}>
       <Head>
         <title>Error</title>
       </Head>
       <Heading color="red" fontSize="3em" text={'404'} />
-      <Heading color="grey" fontSize="2em" tag="h2" text={'Something is going wrong...'} />
+      <Heading color="grey" fontSize="2em" tag="h2" text={'Something is wrong...'} />
     </div>
   );
 };

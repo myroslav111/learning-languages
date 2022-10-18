@@ -1,10 +1,8 @@
-const MainContent = ({ stylesProp, bg, bgI, children }) => {
+
+const MainContent = ({ stylesProp,  children }) => {
   return (
-    <main
-      className={stylesProp}
-      style={{ background: `${bg}`, backgroundImage: `${bgI}` }}
-    >
-      <div style={{ minWidth: '50vw' }}>
+    <main className={stylesProp}>
+      <div>
         <div className="container">
           <div>{children}</div>
         </div>

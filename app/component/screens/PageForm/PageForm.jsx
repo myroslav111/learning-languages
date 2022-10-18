@@ -8,9 +8,9 @@ import Input from '../../ui/Input';
 import Button from '../../ui/Button';
 import ButtonNavigate from '../../ui/ButtonNavigate';
 import { footerBtnProps } from '../../ui/footerBtnProps';
-import {btnWrapp} from '../../../../styles/Footer.module.scss';
-import stylesMainSection from '../../../../styles/MainContentForm.module.scss';
-import stylesBtn from '../../../../styles/Button.module.scss';
+import { btnWrapp } from '../../../../styles/Footer.module.scss';
+import { wrapp } from '../../../../styles/MainContentForm.module.scss';
+import { button } from '../../../../styles/Button.module.scss';
 import stylesInput from '../../../../styles/Input.module.scss';
 
 
@@ -27,7 +27,7 @@ const PageForm = () => {
         <AvatarBlock />
       </Header>
 
-      <MainContent stylesProp={stylesMainSection.mainWrapp}>
+      <MainContent stylesProp={wrapp}>
         <Heading
           fontSize="2em"
           color="black"
@@ -37,7 +37,7 @@ const PageForm = () => {
         <FormBlock>
           <Input stylesProps={stylesInput} type="text" text="EN" placeholder="введіть слово" />
           <Input stylesProps={stylesInput} type="text" text="UA" placeholder="введіть переклад" />
-          <Button stylesProp={stylesBtn.button} type="button">Додати слово</Button>
+          <Button stylesProp={button} type="button">Додати слово</Button>
         </FormBlock>
       </MainContent>
 

@@ -8,10 +8,11 @@ import Button from '../../ui/Button';
 import Textarea from '../../ui/Textarea';
 import ButtonNavigate from '../../ui/ButtonNavigate';
 import { footerBtnProps } from '../../ui/footerBtnProps';
-import {btnWrapp} from '../../../../styles/Footer.module.scss';
-import stylesBtn from '../../../../styles/Button.module.scss';
+import { btnWrapp } from '../../../../styles/Footer.module.scss';
+import { button, iconSwitchLangTranslator } from '../../../../styles/Button.module.scss';
+import { wrapper, selects, btnWrapper } from '../../../../styles/Translator.module.scss';
+import { wrapp } from '../../../../styles/MainContentTranslator.module.scss';
 import stylesTextarea from '../../../../styles/Textarea.module.scss';
-import stylesTranslator from '../../../../styles/Translator.module.scss';
 
 
 const PageTranslator = () => {
@@ -22,37 +23,37 @@ const PageTranslator = () => {
         <AvatarBlock />
       </Header>
 
-      <MainContent bg="white">
+      <MainContent stylesProp={wrapp}>
         
-        <div className={stylesTranslator.wrapper}>
+        <div className={wrapper}>
                    
           <div>
-            {["введіть текст", "тут буде переклад"].map(text => <Textarea stylesProp={stylesTextarea} placeholder={text}>
+            {["введіть текст", "тут буде переклад"].map(text => <Textarea key={Math.floor(Math.random() * 100)}  stylesProp={stylesTextarea} placeholder={text}>
             </Textarea> )}            
           </div>
           
 
-          <div className={stylesTranslator.selects}>
+          <div className={selects}>
             <select name="select">
-              <option value="en" selected>EN</option>
+              <option value="en" defaultValue>EN</option>
               <option value="de">DE</option>
               <option value="ua">UA</option>
             </select>
 
-            <Button stylesProp={stylesBtn.button} >
-              <AiOutlineSwap className={ stylesBtn.iconSwitchLangTranslator } />
+            <Button stylesProp={button} >
+              <AiOutlineSwap className={ iconSwitchLangTranslator } />
             </Button>
 
             <select name="select">
               <option value="en">EN</option>
               <option value="de">DE</option>
-              <option value="ua" selected>UA</option>
+              <option value="ua" defaultValue >UA</option>
             </select>
           </div>
 
-          <div className={stylesTranslator.btnWrapper}>
-            <Button type="button" widthbtn="95px" stylesProp={stylesBtn.button}>скинути</Button>
-            <Button type="button" widthbtn="95px" stylesProp={stylesBtn.button}>перекласти</Button>
+          <div className={btnWrapper}>
+            <Button type="button" widthbtn="95px" stylesProp={button}>скинути</Button>
+            <Button type="button" widthbtn="95px" stylesProp={button}>перекласти</Button>
           </div>
 
           
