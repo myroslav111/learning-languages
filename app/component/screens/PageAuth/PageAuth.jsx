@@ -1,21 +1,28 @@
-
 import { AiFillEye } from 'react-icons/ai';
+import { AiFillGoogleCircle } from 'react-icons/ai';
 import AvatarBlock from '../../AvatarBlock';
 import Footer from '../../Footer';
 import Header from '../../header';
 import Heading from '../../layout/Heading';
 import MainContent from '../../MainContent';
+import Button from '../../ui/Button';
 import ButtonNavigate from '../../ui/ButtonNavigate';
 import { footerBtnProps } from '../../ui/footerBtnProps';
-import { btnWrapp } from '../../../../styles/Footer.module.scss';
-// import { wrapp } from '../../../../styles/MainContentCard.module.scss';
+import {
+  btnWrapp,
+  footerSection,
+  footerButtonsWrapp,
+  footerWrapp,
+} from '../../../../styles/Footer.module.scss';
+import { wrapp } from '../../../../styles/MainContentAuth.module.scss';
 import { formControl } from '../../../../styles/Input.module.scss';
 import {
   iconEye,
   form,
-  wrapp,
-  fomBtn,
+  formBtn,
+  iconGoogle,
 } from '../../../../styles/PageAuth.module.scss';
+import Input from '../../ui/Input';
 
 const PageAuth = () => {
   return (
@@ -25,25 +32,22 @@ const PageAuth = () => {
         <AvatarBlock />
       </Header>
 
-      <MainContent
-        stylesProp={wrapp}
-        bgI="url(https://preview.colorlib.com/theme/bootstrap/login-form-20/images/xbg.jpg.pagespeed.ic.tiVxeakBSd.webp)"
-      >
-        <Heading position="center" tag="h1" text="Форма" fontSize="30px" />
+      <MainContent stylesProp={wrapp} minWidth="50vw">
+        <Heading position="center" tag="h1" text="Увійти" fontSize="30px" />
         <form className={form}>
           <div>
-            <input
-              type="text"
-              className={formControl}
+            <Input
+              type="email"
+              stylesInputProp={formControl}
               placeholder="email"
               required=""
             />
           </div>
           <div style={{ position: 'relative' }}>
-            <input
+            <Input
               id="passwordField"
               type="password"
-              className={formControl}
+              stylesInputProp={formControl}
               placeholder="Password"
               required=""
             />
@@ -52,18 +56,33 @@ const PageAuth = () => {
             </span>
           </div>
           <div>
-            <button
+            <Button
               // type="submit"
-              className={fomBtn}
+              stylesProp={formBtn}
             >
-              Sign In
-            </button>
+              {/* AiFillGoogleCircle */}
+              Увійти
+            </Button>
           </div>
         </form>
+
         <Heading position="center" tag="h1" text="--АБО--" />
+
+        <div>
+          <Button
+            // type="submit"
+            stylesProp={formBtn}
+          >
+            Увійти <AiFillGoogleCircle className={iconGoogle} />
+          </Button>
+        </div>
       </MainContent>
 
-      <Footer>
+      <Footer
+        footerSectionStyleProp={footerSection}
+        footerWrappStyleProp={footerWrapp}
+        footerButtonsWrapp={footerButtonsWrapp}
+      >
         {footerBtnProps.map(({ id, path, icon, tag, text }) => (
           <div key={id} className={btnWrapp}>
             <ButtonNavigate href={path}>{icon}</ButtonNavigate>

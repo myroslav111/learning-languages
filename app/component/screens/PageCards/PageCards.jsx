@@ -12,12 +12,25 @@ import Button from '../../ui/Button';
 import ButtonNavigate from '../../ui/ButtonNavigate';
 import { footerBtnProps } from '../../ui/footerBtnProps';
 import { btnPaginationProps } from '../../ui/buttonPaginationProps';
-import { btnWrapp } from '../../../../styles/Footer.module.scss';
+import {
+  btnWrapp,
+  footerSection,
+  footerButtonsWrapp,
+  footerWrapp,
+} from '../../../../styles/Footer.module.scss';
 import { wrapp } from '../../../../styles/MainContentCard.module.scss';
 import { card } from '../../../../styles/Card.module.scss';
-import { wrapper, containerBtnWordPagination } from '../../../../styles/ContainerBtnWordPagination.module.scss';
-import { soundBtn, deleteBtn, removeBtn, switchLangBtn, button } from '../../../../styles/Button.module.scss';
-
+import {
+  wrapper,
+  containerBtnWordPagination,
+} from '../../../../styles/ContainerBtnWordPagination.module.scss';
+import {
+  soundBtn,
+  deleteBtn,
+  removeBtn,
+  switchLangBtn,
+  button,
+} from '../../../../styles/Button.module.scss';
 
 const PageCards = () => {
   return (
@@ -48,7 +61,7 @@ const PageCards = () => {
 
         <div className={wrapper}>
           <div className={containerBtnWordPagination}>
-            {btnPaginationProps.map(({id, type, width, height, icon}) => (
+            {btnPaginationProps.map(({ id, type, width, height, icon }) => (
               <Button
                 key={id}
                 type={type}
@@ -64,17 +77,20 @@ const PageCards = () => {
         </div>
       </MainContent>
 
-      <Footer>
-        {footerBtnProps.map(({id, path, icon, tag, text }) => (
+      <Footer
+        footerSectionStyleProp={footerSection}
+        footerWrappStyleProp={footerWrapp}
+        footerButtonsWrapp={footerButtonsWrapp}
+      >
+        {footerBtnProps.map(({ id, path, icon, tag, text }) => (
           <div key={id} className={btnWrapp}>
             <ButtonNavigate href={path}>{icon}</ButtonNavigate>
             <Heading tag={tag} text={text} />
           </div>
         ))}
-        </Footer>
+      </Footer>
     </div>
   );
 };
-
 
 export default PageCards;

@@ -1,17 +1,18 @@
-import stylesFooter from '../../styles/Footer.module.scss';
-
-
-const Footer = ({ children }) => {
+const Footer = ({
+  children,
+  footerSectionStyleProp,
+  footerWrappStyleProp,
+  footerButtonsWrapp,
+}) => {
   return (
-    <footer className={stylesFooter.footerSection}>
-      <div className={stylesFooter.footerWrapp}>
+    <footer className={footerSectionStyleProp}>
+      <div className={footerWrappStyleProp}>
         <div className="container">
-          <div className={stylesFooter.footer}>{children}</div>
+          <div className={footerButtonsWrapp}>{children}</div>
         </div>
       </div>
     </footer>
   );
 };
-
 
 export default Footer;

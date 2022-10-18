@@ -1,13 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600&display=swap');
-.wrapp {
-  display: flex;
-  justify-content: center;
-  padding: 100px 0;
-  height: 100vh;
-  min-width: 50%;
-}
 
-.fomBtn {
+.formBtn {
   background: #fbceb5 !important;
   border: 1px solid #fbceb5 !important;
   height: 50px;
@@ -28,6 +21,9 @@
   cursor: pointer;
   transition: 0.5;
   font-family: Caveat, cursive;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   &:hover {
     background: transparent;
     outline: none;
@@ -46,4 +42,10 @@
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
   color: rgba(255, 255, 255, 0.9);
+}
+.iconGoogle {
+  margin-left: 10px;
+  color: orange;
+  width: 2em;
+  height: 2em;
 }
