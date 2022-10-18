@@ -1,11 +1,20 @@
-const Input = ({ stylesProps, text, placeholder, type }) => {
+const Input = ({
+  stylesLabelProp,
+  stylesInputProp,
+  text,
+  placeholder,
+  type,
+}) => {
   return (
-    <label className={stylesProps.label}>
+    <label className={stylesLabelProp}>
       {text}
-      <input className={stylesProps.input} type={type} placeholder={placeholder} />
+      <input
+        className={stylesInputProp}
+        type={type}
+        placeholder={placeholder}
+      />
     </label>
   );
 };
-
 
 export default Input;

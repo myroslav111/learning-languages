@@ -11,11 +11,12 @@
   -webkit-box-shadow: -1px -5px 10px -1px rgba(0, 0, 0, 0.91);
   -moz-box-shadow: -1px -5px 10px -1px rgba(0, 0, 0, 0.91);
   box-shadow: -1px -5px 10px -1px rgba(0, 0, 0, 0.91);
+
   .footerWrapp {
     overflow: hidden;
   }
 
-  .footer {
+  .footerButtonsWrapp {
     display: flex;
     width: 100%;
     justify-content: space-between;
