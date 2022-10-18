@@ -1,3 +1,4 @@
+
 const MainContent = ({ stylesProp,  children }) => {
   return (
     <main className={stylesProp}>
@@ -9,6 +10,5 @@ const MainContent = ({ stylesProp,  children }) => {
     </main>
   );
 };
-
 
 export default MainContent;
