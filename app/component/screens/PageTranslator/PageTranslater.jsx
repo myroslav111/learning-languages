@@ -33,6 +33,7 @@ import {
 const PageTranslator = () => {
   return (
     <div>
+      {/*style={{ maxHeight: '100vh', position: 'relative' }}  */}
       <Header>
         <Heading tag="h1" text="Перекладач" color="white" />
         <AvatarBlock />
