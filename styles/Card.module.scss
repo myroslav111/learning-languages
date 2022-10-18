@@ -2,29 +2,16 @@
 
 .card {
   perspective: 150rem;
-  // height: 20rem;
-  // width: 100%;
   min-width: 320px;
   position: relative;
   max-width: 500px;
-
-  // display: flex;
-  // align-items: center;
-  // justify-content: center;
 
   @media (min-width: $breakpoint480) {
     width: 80vw;
     display: flex;
     align-items: center;
     max-width: 500px;
-    // justify-content: center;
   }
-
-  // @media (max-width: $breakpoint480) {
-  //   min-width: 315px;
-  //   display: flex;
-  //   align-items: center;
-  // }
 
   .front {
     perspective: 150rem;
@@ -48,9 +35,6 @@
     position: absolute;
     top: 0;
     left: 0;
-    // top: 50%;
-    // left: 50%;
-    // transform: translate(-50%, -50%);
     transform: rotateY(0deg);
   }
   &:hover .front {

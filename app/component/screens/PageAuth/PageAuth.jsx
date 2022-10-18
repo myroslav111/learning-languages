@@ -18,13 +18,18 @@ import { wrapp } from '../../../../styles/MainContentAuth.module.scss';
 import { formControl } from '../../../../styles/Input.module.scss';
 import {
   iconEye,
-  form,
   formBtn,
   iconGoogle,
+  formAuth,
+  back,
+  front,
+  bottomBlock,
 } from '../../../../styles/PageAuth.module.scss';
 import Input from '../../ui/Input';
+import { useState } from 'react';
 
 const PageAuth = () => {
+  const [switchForm, setSwitchForm] = useState(true);
   return (
     <div>
       <Header>
@@ -33,48 +38,113 @@ const PageAuth = () => {
       </Header>
 
       <MainContent stylesProp={wrapp} minWidth="50vw">
-        <Heading position="center" tag="h1" text="Увійти" fontSize="30px" />
-        <form className={form}>
-          <div>
-            <Input
-              type="email"
-              stylesInputProp={formControl}
-              placeholder="email"
-              required=""
-            />
+        <Heading
+          position="center"
+          tag="h1"
+          text={switchForm ? 'Увійти' : 'Зареєструватись'}
+          fontSize="30px"
+        />
+        <form className={formAuth}>
+          <div className={switchForm ? front : back}>
+            <div>
+              {/* <Input
+                type="text"
+                stylesInputProp={formControl}
+                placeholder="name"
+                required=""
+              /> */}
+            </div>
+            <div>
+              <Input
+                type="email"
+                stylesInputProp={formControl}
+                placeholder="email"
+                required=""
+              />
+            </div>
+            <div style={{ position: 'relative' }}>
+              <Input
+                id="passwordField"
+                type="password"
+                stylesInputProp={formControl}
+                placeholder="Password"
+                required=""
+              />
+              <span>
+                <AiFillEye className={iconEye} />
+              </span>
+            </div>
+            <div>
+              <Button
+                // type="submit"
+                stylesProp={formBtn}
+              >
+                Увійти
+              </Button>
+            </div>
           </div>
-          <div style={{ position: 'relative' }}>
-            <Input
-              id="passwordField"
-              type="password"
-              stylesInputProp={formControl}
-              placeholder="Password"
-              required=""
-            />
-            <span>
-              <AiFillEye className={iconEye} />
-            </span>
+
+          <div className={switchForm ? back : front}>
+            <div>
+              <Input
+                type="text"
+                stylesInputProp={formControl}
+                placeholder="name"
+                required=""
+              />
+            </div>
+            <div>
+              <Input
+                type="email"
+                stylesInputProp={formControl}
+                placeholder="email"
+                required=""
+              />
+            </div>
+            <div style={{ position: 'relative' }}>
+              <Input
+                id="passwordField"
+                type="password"
+                stylesInputProp={formControl}
+                placeholder="Password"
+                required=""
+              />
+              <span>
+                <AiFillEye className={iconEye} />
+              </span>
+            </div>
+            <div>
+              <Button
+                // type="submit"
+                stylesProp={formBtn}
+              >
+                Зареєструватись
+              </Button>
+            </div>
           </div>
+        </form>
+
+        <div className={bottomBlock}>
+          <Heading position="center" tag="h1" text="--АБО--" />
           <div>
             <Button
               // type="submit"
               stylesProp={formBtn}
             >
-              {/* AiFillGoogleCircle */}
-              Увійти
+              Увійти <AiFillGoogleCircle className={iconGoogle} />
             </Button>
           </div>
-        </form>
-
-        <Heading position="center" tag="h1" text="--АБО--" />
-
-        <div>
-          <Button
-            // type="submit"
-            stylesProp={formBtn}
+          <div
+            style={{ cursor: 'pointer' }}
+            onClick={() => setSwitchForm(() => !switchForm)}
           >
-            Увійти <AiFillGoogleCircle className={iconGoogle} />
-          </Button>
+            <Heading
+              position="center"
+              tag="h1"
+              text={switchForm ? 'Го реєструватись ->' : 'Увійти ->'}
+              color="green"
+            />
+          </div>
         </div>
       </MainContent>
 
