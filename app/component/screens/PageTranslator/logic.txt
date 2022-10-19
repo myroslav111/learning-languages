@@ -1,0 +1,59 @@
+фун. (стейт) запись велью из 1й текстареа
+второе текстареа дисаблед
+
+  const [ с какого язык] = useState('en');=>селект
+  const [на какой] = useState('uk');=>селект
+  const [слово для перевода] = useState('');=>textarea
+  const [переведенное слово ] = useState('');=>2textarea
+
+тут нужно апи
+..апи
+import translateApi from 'axios';
+
+async function getTranslate(text, translateFrom, translateTo) {
+  const { data } = await translateApi.get(
+    `https://api.mymemory.translated.net/get?q=${text}&langpair=${translateFrom}|${translateTo}`
+  );
+
+  return data;
+}
+export default getTranslate;
+
+..фун
+  const handleRefreshTextarea = () => {
+    setTextForTranslate('');
+    setTranslated('');
+  };
+
+  ..меняем местами языки
+  const handleReverseLang = () => {
+    setFromLanguage(toLanguage);
+    setToLanguage(fromLanguage);
+  };
+
+  ..фун перевода
+const handleTranslate = async () => {
+    if (!textForTranslate) {
+      toast.warn('🦄 Додай слово для перекладу !');
+      return;
+    }
+    try {
+      const { responseData } = await getTranslate(
+        textForTranslate,
+        fromLanguage,
+        toLanguage
+      );
+      setTranslated(responseData.translatedText);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  ..запись значений селектов
+    const handleChangeFrom = event => {
+    setFromLanguage(event.target.value);
+  };
+
+  const handleChangeTo = event => {
+    setToLanguage(event.target.value);
+  };
