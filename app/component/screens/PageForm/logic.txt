@@ -1,0 +1,39 @@
+  по дефолту ингл
+  const [currentLanguage] = useState('en');
+  const [с какого языка] = useState('');
+  const [на какой] = useState('');
+  const [is user registered ?] = useState();
+  const [{слово для карточки + язик если зареганый} ] = useState(null);
+  const [isSuccess, setIsSuccess] = useState(false);для нотификашки
+
+
+  забираем инпути кладем их в обьект и отправляем на конкретную колекцию в зависимости зареганый или нет и языка
+  (unauth-cards    cards)
+  /** write a new word in bd */
+  const handleSubmitNewWord = async () => {
+    if (!en || !ru) return toast.warn('🦄 Ви повинні додати слово.');
+    setIsSuccess(true);
+    let idCard = nanoid();
+    /** if our user unregistered */
+    if (!email) {
+      apiForUnregisteredUsers.addWord({ en, ru });
+    }
+    /** if current page is england and user is registered*/
+    if (email && currentLanguage === 'en') {
+      objUser.data?.push({ en, ru, idCard });
+      await apiForRegisteredUsers.addWordAuth(objUser.id, {
+        ...objUser,
+      });
+    }
+    /** if current page is deuchland and user is registered*/
+    if (email && currentLanguage === 'de') {
+      objUser.dataDe?.push({ en, ru, idCard });
+      await apiForRegisteredUsers.addWordAuth(objUser.id, {
+        ...objUser,
+      });
+       toast.success('🚀 Ми додали слово до ваших карток!');
+    setEnWord('');
+    setRuWord('');
+    setIsSuccess(false);
+  }
+    }
