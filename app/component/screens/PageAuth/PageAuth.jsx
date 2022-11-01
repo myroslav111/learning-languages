@@ -5,6 +5,7 @@ import Footer from '../../Footer';
 import Header from '../../header';
 import Heading from '../../layout/Heading';
 import MainContent from '../../MainContent';
+import RegisterForm from './RegisterForm';
 import Button from '../../ui/Button';
 import ButtonNavigate from '../../ui/ButtonNavigate';
 import { footerBtnProps } from '../../ui/footerBtnProps';
@@ -44,15 +45,9 @@ const PageAuth = () => {
           text={switchForm ? 'Увійти' : 'Зареєструватись'}
           fontSize="30px"
         />
-        <form className={formAuth}>
-          <div className={switchForm ? front : back}>
-            <div>
-              {/* <Input
-                type="text"
-                stylesInputProp={formControl}
-                placeholder="name"
-                required=""
-              /> */}
+        <form className={formAuth}></form>
+        {/* <div className={switchForm ? front : back}>
+             <div>
             </div>
             <div>
               <Input
@@ -82,9 +77,9 @@ const PageAuth = () => {
                 Увійти
               </Button>
             </div>
-          </div>
+          </div> */}
 
-          <div className={switchForm ? back : front}>
+        {/* <div className={switchForm ? back : front}>
             <div>
               <Input
                 type="text"
@@ -121,9 +116,10 @@ const PageAuth = () => {
                 Зареєструватись
               </Button>
             </div>
-          </div>
+          </div> */}
+        <form>
+          <RegisterForm />
         </form>
-
         <div className={bottomBlock}>
           <Heading position="center" tag="h1" text="--АБО--" />
           <div>
