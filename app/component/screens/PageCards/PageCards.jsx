@@ -9,6 +9,7 @@ import MainContent from '../../MainContent';
 import AvatarBlock from '../../AvatarBlock';
 import Card from '../../Card';
 import Button from '../../ui/Button';
+import SelectLanguage from '../../ui/SelectLanguage';
 import ButtonNavigate from '../../ui/ButtonNavigate';
 import { footerBtnProps } from '../../ui/footerBtnProps';
 import { btnPaginationProps } from '../../ui/buttonPaginationProps';
@@ -31,12 +32,17 @@ import {
   switchLangBtn,
   button,
 } from '../../../../styles/Button.module.scss';
+import englishWordsTest from '../../../../englishWordsTest.json';
+import germanWordsTest from '../../../../germanWordsTest.json';
+console.log("englishWordsTest", englishWordsTest);
+
 
 const PageCards = () => {
   return (
     <div>
       <Header>
         <Heading tag="h1" text="Ваші картки" color="white" />
+        <SelectLanguage />
         <AvatarBlock />
       </Header>
 

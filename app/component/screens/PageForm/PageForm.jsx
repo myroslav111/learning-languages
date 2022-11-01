@@ -6,6 +6,7 @@ import AvatarBlock from '../../AvatarBlock';
 import FormBlock from '../../FormBlock';
 import Input from '../../ui/Input';
 import Button from '../../ui/Button';
+import SelectLanguage from '../../ui/SelectLanguage';
 import ButtonNavigate from '../../ui/ButtonNavigate';
 import { footerBtnProps } from '../../ui/footerBtnProps';
 import {
@@ -23,6 +24,7 @@ const PageForm = () => {
     <div>
       <Header>
         <Heading fontSize="1em" tag="h1" text="Додавання слова" color="white" />
+        <SelectLanguage />
         <AvatarBlock />
       </Header>
 
