@@ -1,4 +1,3 @@
-// import { AiFillEye } from 'react-icons/ai';
 import { AiFillGoogleCircle } from 'react-icons/ai';
 import AvatarBlock from '../../AvatarBlock';
 import Footer from '../../Footer';
@@ -17,18 +16,14 @@ import {
   footerWrapp,
 } from '../../../../styles/Footer.module.scss';
 import { wrapp } from '../../../../styles/MainContentAuth.module.scss';
-import { formControl } from '../../../../styles/Input.module.scss';
 import {
-  iconEye,
   formBtn,
   iconGoogle,
   formAuth,
-  back,
-  front,
   bottomBlock,
 } from '../../../../styles/PageAuth.module.scss';
-import Input from '../../ui/Input';
 import { useState } from 'react';
+import { motion } from 'framer-motion';
 
 const PageAuth = () => {
   // const [switchForm, setSwitchForm] = useState(true);
@@ -48,9 +43,15 @@ const PageAuth = () => {
           fontSize="30px"
         />
         {registered ? (
-          <form className={formAuth}>
-            <LoginForm />
-          </form>
+          <motion.div
+            initial={{ x: -1000, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ delay: 0.5, duration: 0.8 }}
+          >
+            <form className={formAuth}>
+              <LoginForm />
+            </form>
+          </motion.div>
         ) : (
           <form className={formAuth}>
             <RegisterForm />

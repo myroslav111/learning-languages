@@ -12,7 +12,7 @@ const SelectLanguage = ({ styleSelectProp, languages }) => {
     <div className={styleSelectProp}>
       <select name="select" onChange={handleChangeFrom}>
         {languages.map(leng => (
-          <option value={leng.val} defaultValue>
+          <option key={Math.random()} value={leng.val} defaultValue>
             {leng.txt}
           </option>
         ))}
