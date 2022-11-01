@@ -30,9 +30,9 @@ import {
 import Input from '../../ui/Input';
 import { useState } from 'react';
 
-
 const PageAuth = () => {
-  const [switchForm, setSwitchForm] = useState(true);
+  // const [switchForm, setSwitchForm] = useState(true);
+  const [registered, setRegistered] = useState(false);
   return (
     <div>
       <Header>
@@ -44,88 +44,19 @@ const PageAuth = () => {
         <Heading
           position="center"
           tag="h1"
-          text={switchForm ? 'Увійти' : 'Зареєструватись'}
+          text={registered ? 'Увійти' : 'Зареєструватись'}
           fontSize="30px"
         />
-        <form className={formAuth}>
-          <LoginForm></LoginForm>
-        </form>
-        
-        <form className={formAuth}>
-          <RegisterForm />
-        </form>
-        {/* <div className={switchForm ? front : back}>
-             <div>
-            </div>
-            <div>
-              <Input
-                type="email"
-                stylesInputProp={formControl}
-                placeholder="email"
-                required=""
-              />
-            </div>
-            <div style={{ position: 'relative' }}>
-              <Input
-                id="passwordField"
-                type="password"
-                stylesInputProp={formControl}
-                placeholder="Password"
-                required=""
-              />
-              <span>
-                <AiFillEye className={iconEye} />
-              </span>
-            </div>
-            <div>
-              <Button
-                // type="submit"
-                stylesProp={formBtn}
-              >
-                Увійти
-              </Button>
-            </div>
-          </div> */}
+        {registered ? (
+          <form className={formAuth}>
+            <LoginForm />
+          </form>
+        ) : (
+          <form className={formAuth}>
+            <RegisterForm />
+          </form>
+        )}
 
-        {/* <div className={switchForm ? back : front}>
-            <div>
-              <Input
-                type="text"
-                stylesInputProp={formControl}
-                placeholder="name"
-                required=""
-              />
-            </div>
-            <div>
-              <Input
-                type="email"
-                stylesInputProp={formControl}
-                placeholder="email"
-                required=""
-              />
-            </div>
-            <div style={{ position: 'relative' }}>
-              <Input
-                id="passwordField"
-                type="password"
-                stylesInputProp={formControl}
-                placeholder="Password"
-                required=""
-              />
-              <span>
-                <AiFillEye className={iconEye} />
-              </span>
-            </div>
-            <div>
-              <Button
-                // type="submit"
-                stylesProp={formBtn}
-              >
-                Зареєструватись
-              </Button>
-            </div>
-          </div> */}
-        
         <div className={bottomBlock}>
           <Heading position="center" tag="h1" text="--АБО--" />
           <div>
@@ -138,12 +69,12 @@ const PageAuth = () => {
           </div>
           <div
             style={{ cursor: 'pointer' }}
-            onClick={() => setSwitchForm(() => !switchForm)}
+            onClick={() => setRegistered(() => !registered)}
           >
             <Heading
               position="center"
               tag="h1"
-              text={switchForm ? 'Го реєструватись ->' : 'Увійти ->'}
+              text={registered ? 'Го реєструватись ->' : 'Увійти ->'}
               color="green"
             />
           </div>
