@@ -29,48 +29,41 @@ import Input from '../../ui/Input';
 // import { useState } from 'react';
 
 
-const RegisterForm = () => {
+const LoginForm = () => {
   return (
-    // <div className={switchForm ? back : front}>
-    <div>
       <div>
-        <Input
-          type="text"
-          stylesInputProp={formControl}
-          placeholder="name"
-          required=""
-        />
-      </div>
-      <div>
-        <Input
-          type="email"
-          stylesInputProp={formControl}
-          placeholder="email"
-          required=""
-        />
-      </div>
-      <div style={{ position: 'relative' }}>
-        <Input
-          id="passwordField"
-          type="password"
-          stylesInputProp={formControl}
-          placeholder="Password"
-          required=""
-        />
-        <span>
-          <AiFillEye className={iconEye} />
-        </span>
-      </div>
-      <div>
-        <Button
-          // type="submit"
-          stylesProp={formBtn}
-        >
-          Зареєструватись
-        </Button>
-      </div>
-    </div>
-  );
-};
+          {/* <div className={switchForm ? front : back}> */}
+            <div>
+              <Input
+                type="email"
+                stylesInputProp={formControl}
+                placeholder="email"
+                required=""
+              />
+            </div>
+            <div style={{ position: 'relative' }}>
+              <Input
+                id="passwordField"
+                type="password"
+                stylesInputProp={formControl}
+                placeholder="Password"
+                required=""
+              />
+              <span>
+                <AiFillEye className={iconEye} />
+              </span>
+            </div>
+            <div>
+              <Button
+                // type="submit"
+                stylesProp={formBtn}
+              >
+                Увійти
+              </Button>
+            </div>
+          </div>
+  )
+}
 
-export default RegisterForm;
+
+export default LoginForm;

@@ -1,4 +1,4 @@
-import { AiFillEye } from 'react-icons/ai';
+// import { AiFillEye } from 'react-icons/ai';
 import { AiFillGoogleCircle } from 'react-icons/ai';
 import AvatarBlock from '../../AvatarBlock';
 import Footer from '../../Footer';
@@ -6,6 +6,7 @@ import Header from '../../header';
 import Heading from '../../layout/Heading';
 import MainContent from '../../MainContent';
 import RegisterForm from './RegisterForm';
+import LoginForm from './LoginForm';
 import Button from '../../ui/Button';
 import ButtonNavigate from '../../ui/ButtonNavigate';
 import { footerBtnProps } from '../../ui/footerBtnProps';
@@ -29,6 +30,7 @@ import {
 import Input from '../../ui/Input';
 import { useState } from 'react';
 
+
 const PageAuth = () => {
   const [switchForm, setSwitchForm] = useState(true);
   return (
@@ -45,7 +47,13 @@ const PageAuth = () => {
           text={switchForm ? 'Увійти' : 'Зареєструватись'}
           fontSize="30px"
         />
-        <form className={formAuth}></form>
+        <form className={formAuth}>
+          <LoginForm></LoginForm>
+        </form>
+        
+        <form className={formAuth}>
+          <RegisterForm />
+        </form>
         {/* <div className={switchForm ? front : back}>
              <div>
             </div>
@@ -117,9 +125,7 @@ const PageAuth = () => {
               </Button>
             </div>
           </div> */}
-        <form>
-          <RegisterForm />
-        </form>
+        
         <div className={bottomBlock}>
           <Heading position="center" tag="h1" text="--АБО--" />
           <div>
