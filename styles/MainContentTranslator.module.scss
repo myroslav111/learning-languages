@@ -2,3 +2,9 @@
   background: white;
   height: 100vh;
 }
+
+.wrappAdditionally {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

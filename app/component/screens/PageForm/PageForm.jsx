@@ -18,13 +18,18 @@ import {
 import { wrapp } from '../../../../styles/MainContentForm.module.scss';
 import { button } from '../../../../styles/Button.module.scss';
 import { label, input } from '../../../../styles/Input.module.scss';
+import { select } from '../../../../styles/SelectCurentLeng.module.scss';
+import dataForSelect from '../../ui/contentSelect';
 
 const PageForm = () => {
   return (
     <div>
       <Header>
         <Heading fontSize="1em" tag="h1" text="Додавання слова" color="white" />
-        <SelectLanguage />
+        <SelectLanguage
+          styleSelectProp={select}
+          languages={dataForSelect.contentSelectHeaer}
+        />
         <AvatarBlock />
       </Header>
 

@@ -8,6 +8,7 @@ import Button from '../../ui/Button';
 import Textarea from '../../ui/Textarea';
 import ButtonNavigate from '../../ui/ButtonNavigate';
 import { footerBtnProps } from '../../ui/footerBtnProps';
+import SelectLanguage from '../../ui/SelectLanguage';
 import {
   btnWrapp,
   footerSection,
@@ -23,23 +24,30 @@ import {
   selects,
   btnWrapper,
 } from '../../../../styles/Translator.module.scss';
-import { wrapp } from '../../../../styles/MainContentTranslator.module.scss';
+import {
+  wrapp,
+  wrappAdditionally,
+} from '../../../../styles/MainContentTranslator.module.scss';
 import {
   wrapperTextarea,
   textareaStyle,
   icon,
 } from '../../../../styles/Textarea.module.scss';
+import { select } from '../../../../styles/SelectCurentLeng.module.scss';
+import dataForSelect from '../../ui/contentSelect';
 
 const PageTranslator = () => {
   return (
     <div>
-      {/*style={{ maxHeight: '100vh', position: 'relative' }}  */}
       <Header>
         <Heading tag="h1" text="Перекладач" color="white" />
         <AvatarBlock />
       </Header>
 
-      <MainContent stylesProp={wrapp}>
+      <MainContent
+        stylesProp={wrapp}
+        stylesPropAdditionally={wrappAdditionally}
+      >
         <div className={wrapper}>
           <div>
             {['введіть текст', 'тут буде переклад'].map(text => (
@@ -54,25 +62,19 @@ const PageTranslator = () => {
           </div>
 
           <div className={selects}>
-            <select name="select">
-              <option value="en" defaultValue>
-                EN
-              </option>
-              <option value="de">DE</option>
-              <option value="ua">UA</option>
-            </select>
+            <SelectLanguage
+              styleSelectProp={select}
+              languages={dataForSelect.contentSelectTranslater}
+            />
 
             <Button stylesProp={button}>
               <AiOutlineSwap className={iconSwitchLangTranslator} />
             </Button>
 
-            <select name="select">
-              <option value="en">EN</option>
-              <option value="de">DE</option>
-              <option value="ua" defaultValue>
-                UA
-              </option>
-            </select>
+            <SelectLanguage
+              styleSelectProp={select}
+              languages={dataForSelect.contentSelectTranslater}
+            />
           </div>
 
           <div className={btnWrapper}>
