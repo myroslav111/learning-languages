@@ -1,0 +1,39 @@
+.select {
+  display: grid;
+  grid-template-areas: 'select';
+  align-content: center;
+  align-items: center;
+  position: relative;
+  width: 30px;
+
+  select,
+  &::after {
+    grid-area: select;
+  }
+
+  min-width: 10ch;
+  max-width: 30ch;
+
+  border: 1px solid #777;
+  border-radius: 0.25em;
+  padding: 0.25em 0.5em;
+
+  font-size: 1.25rem;
+  cursor: pointer;
+  line-height: 1.1;
+
+  // Optional styles
+  // remove for transparency
+  background-color: #fff;
+  background-image: linear-gradient(to top, #f9f9f9, #fff 33%);
+
+  // Custom arrow
+  &:not(.select--multiple)::after {
+    content: '';
+    justify-self: end;
+    width: 0.8em;
+    height: 0.5em;
+    background-color: #777;
+    clip-path: polygon(100% 0%, 0 0%, 50% 100%);
+  }
+}
