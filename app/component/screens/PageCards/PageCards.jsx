@@ -37,16 +37,23 @@ import dataForSelect from '../../ui/contentSelect';
 import englishWordsTest from '../../../../englishWordsTest.json';
 import germanWordsTest from '../../../../germanWordsTest.json';
 import { getCardsByCurrentLanguage } from './pageCardsFunctions';
-import { useState } from 'react';
-
+import { useState, useEffect } from 'react';
 
 const PageCards = () => {
   const [englishCards, setEnglishCards] = useState(englishWordsTest);
   const [germanCards, setGermanCards] = useState(germanWordsTest);
   const [cardIndex, setCardIndex] = useState(0);
-  const [currentLanguage, setCurrentLanguage] = useState('en');
- 
-  
+  const [currentLanguage, setCurrentLanguage] = useState('de');
+  const [elCard, setElCard] = useState({});
+
+  useEffect(() => {
+    setElCard(
+      getCardsByCurrentLanguage(currentLanguage, germanCards, englishCards)[
+        cardIndex
+      ]
+    );
+  }, [cardIndex, currentLanguage]);
+
   return (
     <div>
       <Header>
@@ -61,7 +68,7 @@ const PageCards = () => {
       <MainContent stylesProp={wrapp}>
         <Heading tag="h1" text="Картка" />
         <div className={card}>
-          <Card textForeign={getCardsByCurrentLanguage(currentLanguage, germanCards, englishCards)[cardIndex].word} textTranslation={getCardsByCurrentLanguage(currentLanguage, germanCards, englishCards)[cardIndex].translation}>
+          <Card textForeign={elCard.word} textTranslation={elCard.translation}>
             <Button stylesProp={soundBtn}>
               <AiOutlineNotification />
             </Button>
@@ -79,17 +86,27 @@ const PageCards = () => {
 
         <div className={wrapper}>
           <div className={containerBtnWordPagination}>
-            {btnPaginationProps.map(({ id, type, width, height, icon }) => (
-              <Button
-                key={id}
-                type={type}
-                stylesProp={button}
-                widthbtn={width}
-                heightbtn={height}
-              >
-                {icon}
-              </Button>
-            ))}
+            {btnPaginationProps.map(
+              ({ id, type, width, height, icon, action }) => (
+                <Button
+                  key={id}
+                  type={type}
+                  stylesProp={button}
+                  widthbtn={width}
+                  heightbtn={height}
+                  action={action}
+                  idxCard={setCardIndex}
+                  arrCards={getCardsByCurrentLanguage(
+                    currentLanguage,
+                    germanCards,
+                    englishCards
+                  )}
+                  cardIndex={cardIndex}
+                >
+                  {icon}
+                </Button>
+              )
+            )}
           </div>
           <span>card number</span>
         </div>
