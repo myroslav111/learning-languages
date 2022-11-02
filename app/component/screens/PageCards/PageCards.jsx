@@ -36,9 +36,17 @@ import { select } from '../../../../styles/SelectCurentLeng.module.scss';
 import dataForSelect from '../../ui/contentSelect';
 import englishWordsTest from '../../../../englishWordsTest.json';
 import germanWordsTest from '../../../../germanWordsTest.json';
-console.log('englishWordsTest', englishWordsTest);
+import { getCardsByCurrentLanguage } from './pageCardsFunctions';
+import { useState } from 'react';
+
 
 const PageCards = () => {
+  const [englishCards, setEnglishCards] = useState(englishWordsTest);
+  const [germanCards, setGermanCards] = useState(germanWordsTest);
+  const [cardIndex, setCardIndex] = useState(0);
+  const [currentLanguage, setCurrentLanguage] = useState('en');
+ 
+  
   return (
     <div>
       <Header>
@@ -53,7 +61,7 @@ const PageCards = () => {
       <MainContent stylesProp={wrapp}>
         <Heading tag="h1" text="Картка" />
         <div className={card}>
-          <Card textForeign="en" textTranslation="ua">
+          <Card textForeign={getCardsByCurrentLanguage(currentLanguage, germanCards, englishCards)[cardIndex].word} textTranslation={getCardsByCurrentLanguage(currentLanguage, germanCards, englishCards)[cardIndex].translation}>
             <Button stylesProp={soundBtn}>
               <AiOutlineNotification />
             </Button>
