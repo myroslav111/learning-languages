@@ -20,7 +20,7 @@ import {
   footerWrapp,
 } from '../../../../styles/Footer.module.scss';
 import { wrapp } from '../../../../styles/MainContentCard.module.scss';
-import { card } from '../../../../styles/Card.module.scss';
+import { card, cardReverse } from '../../../../styles/Card.module.scss';
 import {
   wrapper,
   containerBtnWordPagination,
@@ -36,29 +36,54 @@ import { select } from '../../../../styles/SelectCurentLeng.module.scss';
 import dataForSelect from '../../ui/contentSelect';
 // import englishWordsTest from '../../../../englishWordsTest.json';
 // import germanWordsTest from '../../../../germanWordsTest.json';
-import { getCardsByCurrentLanguage } from './pageCardsFunctions';
+// import { getCardsByCurrentLanguage } from './pageCardsFunctions';
+import { getCardsByCurrentLanguage, removeCardFromCurrentSession } from './pageCardsFunctions';
 import { useState, useEffect } from 'react';
 
 const PageCards = ({ unauthCardsArrProp }) => {
   const [englishCards, setEnglishCards] = useState([]);
   const [germanCards, setGermanCards] = useState([]);
-  const [cardIndex, setCardIndex] = useState(0);
-  const [currentLanguage, setCurrentLanguage] = useState('de');
-  const [elCard, setElCard] = useState({});
-  const [unauthCards, setUnauthCards] = useState(unauthCardsArrProp);
-  const [isUser, setIsUser] = useState(false);
-  // console.log(unauthCards[0]);
+  const [cardIndex, setCardIndex] = useState(0);                 // индекс текущей карточки
+  const [currentLanguage, setCurrentLanguage] = useState('de');  // текущий язык
+  const [currentCard, setCurrentCard] = useState({});                      // текущая карточка
+  const [unauthCards, setUnauthCards] = useState(unauthCardsArrProp); // массив слов неавторизированного пользователя
+  const [isUser, setIsUser] = useState(false); // авторизирован ли пользователь
+  const [isWordSide, setIsWordSide] = useState(true);
 
+ 
+
+  // отображает перевод слова
+  const reverseCard = () => {
+    console.log("reverseCard");
+  }
+
+  // удаляет слово безвлсвратно из БД
+  const delWordFromDataBase = () => {
+    console.log("delWordFromDataBase");
+  }
+
+  //удаляет слово из текущей сессии для неавторизированных пользователей
+  const delWordFromCurrentSession = () => {
+    const result = unauthCards.filter(card => card._id !== currentCard._id);  
+    setUnauthCards(result);
+  }
+
+  // озвучивает слово карточки
+  const vocalizeWord = () => {
+    console.log("vocalizeWord");
+  }
+
+    
   useEffect(() => {
     if (isUser) {
-      setElCard(
+      setCurrentCard(
         getCardsByCurrentLanguage(currentLanguage, germanCards, englishCards)[
           cardIndex
         ]
       );
     }
-    setElCard(unauthCards[cardIndex]);
-  }, [cardIndex, currentLanguage]);
+    setCurrentCard(unauthCards[cardIndex]);
+  }, [cardIndex, currentLanguage, unauthCards]);
 
   return (
     <div>
@@ -73,20 +98,42 @@ const PageCards = ({ unauthCardsArrProp }) => {
 
       <MainContent stylesProp={wrapp}>
         <Heading tag="h1" text="Картка" />
-        <div className={card}>
-          <Card textForeign={elCard.word} textTranslation={elCard.translation}>
-            <Button stylesProp={soundBtn}>
+        <div className={isWordSide ? card : cardReverse} onClick={()=>setIsWordSide(prevState=>!prevState)}>
+          <Card textForeign={currentCard.word} textTranslation={currentCard.translation} >
+            <Button
+              stylesProp={soundBtn}
+              onOutlineNotificationClick={vocalizeWord}
+              isEventOutlineNotification={true}
+            >
               <AiOutlineNotification />
             </Button>
-            <Button stylesProp={deleteBtn}>
+
+            <Button
+              stylesProp={deleteBtn}
+              onOutlineDeleteClick={delWordFromDataBase}
+              isEventOutlineDelete={true}
+            >              
               <AiOutlineDelete />
             </Button>
-            <Button stylesProp={removeBtn}>
+
+            <Button
+              stylesProp={removeBtn}
+              onMinusCircleClick={delWordFromCurrentSession}
+              isEventMinusCircle={true}
+              currentCard={currentCard}
+              arrCards={unauthCards}
+            >
               <AiOutlineMinusCircle />
             </Button>
-            <Button stylesProp={switchLangBtn}>
+
+            <Button
+              stylesProp={switchLangBtn}
+              onOutlineSwapClick={reverseCard}
+              isEventOutlineSwap={true}
+            >
               <AiOutlineSwap />
             </Button>
+
           </Card>
         </div>
 
@@ -118,7 +165,9 @@ const PageCards = ({ unauthCardsArrProp }) => {
               )
             )}
           </div>
-          <span>card number</span>
+          <span style={{fontSize:30}}>CurrentCardIndex: {cardIndex}</span>
+          <span style={{fontSize:30}}>AllCards: {unauthCards.length}</span>
+
         </div>
       </MainContent>
 

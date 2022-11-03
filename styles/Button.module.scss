@@ -42,6 +42,7 @@
 
 //AiOutlineNotification
 .soundBtn {
+  z-index: 100;
   background: none;
   color: green;
   border: none;
@@ -57,6 +58,7 @@
 
 //AiOutlineDelete
 .deleteBtn {
+  z-index: 100;
   background: none;
   color: red;
   border: none;
@@ -72,6 +74,7 @@
 
 // AiOutlineMinusCircle
 .removeBtn {
+  z-index:100;
   background: none;
   color: yellow;
   border: none;
@@ -87,6 +90,7 @@
 
 // AiOutlineSwap
 .switchLangBtn {
+  z-index: 100;
   background: none;
   color: blue;
   border: none;

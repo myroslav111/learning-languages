@@ -2,7 +2,6 @@ import Head from 'next/head';
 import PageCards from '../app/component/screens/PageCards/PageCards';
 
 const CardsPage = ({ unauthCardsArr }) => {
-  // console.log(unauthCardsArr);
   return (
     <div>
       <Head>
