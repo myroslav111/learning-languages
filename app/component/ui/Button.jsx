@@ -10,7 +10,14 @@ const Button = ({
   children,
 }) => {
   const changeCardIdx = () => {
-    idxCard(prev => prev + Number(action));
+    // console.log('cardIndexfirst', cardIndex);
+    if (cardIndex + Number(action) >= 0 && action[0] === '-') {
+      idxCard(prev => prev + Number(action));
+    }
+    if (cardIndex + Number(action) < arrCards.length && action[0] === '+') {
+      idxCard(prev => prev + Number(action));
+    }
+    return;
   };
 
   return (
