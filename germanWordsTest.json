@@ -1,8 +1,6 @@
-[{"word": "german-hello",
-"translation":"german-привет"},
-{"word":"german-bye",
-"translation":"german-пока"},
-{"word":"german-time",
-"translation":"german-время"},
-{"word":"german-money",
-"translation":"german-деньги"}]
+[
+  { "word": "1german-hello", "translation": "german-привет" },
+  { "word": "2german-bye", "translation": "german-пока" },
+  { "word": "3german-time", "translation": "german-время" },
+  { "word": "4german-money", "translation": "german-деньги" }
+]

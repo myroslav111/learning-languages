@@ -14,7 +14,7 @@ export const btnPaginationProps = [
     width: '60px',
     id: '1',
     height: '60px',
-    action: '-3',
+    action: '-2',
   },
   {
     icon: (
@@ -50,6 +50,6 @@ export const btnPaginationProps = [
     width: '60px',
     id: '4',
     height: '60px',
-    action: '+3',
+    action: '+2',
   },
 ];
