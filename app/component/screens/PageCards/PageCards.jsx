@@ -34,24 +34,30 @@ import {
 } from '../../../../styles/Button.module.scss';
 import { select } from '../../../../styles/SelectCurentLeng.module.scss';
 import dataForSelect from '../../ui/contentSelect';
-import englishWordsTest from '../../../../englishWordsTest.json';
-import germanWordsTest from '../../../../germanWordsTest.json';
+// import englishWordsTest from '../../../../englishWordsTest.json';
+// import germanWordsTest from '../../../../germanWordsTest.json';
 import { getCardsByCurrentLanguage } from './pageCardsFunctions';
 import { useState, useEffect } from 'react';
 
-const PageCards = () => {
-  const [englishCards, setEnglishCards] = useState(englishWordsTest);
-  const [germanCards, setGermanCards] = useState(germanWordsTest);
+const PageCards = ({ unauthCardsArrProp }) => {
+  const [englishCards, setEnglishCards] = useState([]);
+  const [germanCards, setGermanCards] = useState([]);
   const [cardIndex, setCardIndex] = useState(0);
   const [currentLanguage, setCurrentLanguage] = useState('de');
   const [elCard, setElCard] = useState({});
+  const [unauthCards, setUnauthCards] = useState(unauthCardsArrProp);
+  const [isUser, setIsUser] = useState(false);
+  // console.log(unauthCards[0]);
 
   useEffect(() => {
-    setElCard(
-      getCardsByCurrentLanguage(currentLanguage, germanCards, englishCards)[
-        cardIndex
-      ]
-    );
+    if (isUser) {
+      setElCard(
+        getCardsByCurrentLanguage(currentLanguage, germanCards, englishCards)[
+          cardIndex
+        ]
+      );
+    }
+    setElCard(unauthCards[cardIndex]);
   }, [cardIndex, currentLanguage]);
 
   return (
@@ -96,11 +102,15 @@ const PageCards = () => {
                   heightbtn={height}
                   action={action}
                   idxCard={setCardIndex}
-                  arrCards={getCardsByCurrentLanguage(
-                    currentLanguage,
-                    germanCards,
-                    englishCards
-                  )}
+                  arrCards={
+                    isUser
+                      ? getCardsByCurrentLanguage(
+                          currentLanguage,
+                          germanCards,
+                          englishCards
+                        )
+                      : unauthCards
+                  }
                   cardIndex={cardIndex}
                 >
                   {icon}
