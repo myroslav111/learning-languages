@@ -20,8 +20,42 @@ import { button } from '../../../../styles/Button.module.scss';
 import { label, input } from '../../../../styles/Input.module.scss';
 import { select } from '../../../../styles/SelectCurentLeng.module.scss';
 import dataForSelect from '../../ui/contentSelect';
+import { useState } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const PageForm = () => {
+  const [from, setFrom] = useState('');
+  const [to, setTo] = useState('');
+
+  const handleSubmit = event => {
+    event.preventDefault();
+
+    if (!from || !to) return toast.warn('🦄 Ви повинні додати слово.');
+    // setIsSuccess(true);
+
+    const newCard = {
+      word: from,
+      translation: to,
+    };
+
+    console.log(newCard);
+
+    /** if our user unregistered */
+    // if (!email) {
+    //   fooWriteToDb({ from, to });
+    // }
+
+    /** if current page is england and user is registered*/
+
+    /** if current page is deuchland and user is registered*/
+
+    //    toast.success('🚀 Ми додали слово до ваших карток!');
+    setFrom('');
+    setTo('');
+    // setIsSuccess(false);
+  };
+
   return (
     <div>
       <Header>
@@ -40,22 +74,28 @@ const PageForm = () => {
           tag="h1"
           text="Додайте слово для вивчення!"
         />
-        <FormBlock>
+        <FormBlock onSubmit={handleSubmit}>
           <Input
+            // onChangeEvent={recValueInput}
+            stateFoo={setFrom}
             stylesInputProp={input}
             stylesLabelProp={label}
             type="text"
             text="EN"
             placeholder="введіть слово"
+            value={from}
           />
           <Input
+            // onChangeEvent={recValueInput}
+            stateFoo={setTo}
             stylesInputProp={input}
             stylesLabelProp={label}
             type="text"
             text="UA"
             placeholder="введіть переклад"
+            value={to}
           />
-          <Button stylesProp={button} type="button">
+          <Button stylesProp={button} type="submit">
             Додати слово
           </Button>
         </FormBlock>
@@ -73,6 +113,7 @@ const PageForm = () => {
           </div>
         ))}
       </Footer>
+      <ToastContainer />
     </div>
   );
 };

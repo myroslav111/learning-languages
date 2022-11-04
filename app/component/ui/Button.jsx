@@ -15,6 +15,7 @@ const Button = ({
   isEventMinusCircle,
   onOutlineSwapClick,
   isEventOutlineSwap,
+  isEventPagination,
   children,
 }) => {
   const changeCardIdx = () => {
@@ -25,40 +26,45 @@ const Button = ({
       idxCard(prev => prev + Number(action));
     }
     return;
-  }
+  };
 
   // кнопки на карточке
-  const actionByCardsButton = (e) => {
+  const actionByCardsButton = e => {
     e.stopPropagation();
     switch (true) {
-      case isEventOutlineNotification: onOutlineNotificationClick();
-        
+      case isEventOutlineNotification:
+        onOutlineNotificationClick();
+
         break;
-      case isEventOutlineDelete: onOutlineDeleteClick();
-        
+      case isEventOutlineDelete:
+        onOutlineDeleteClick();
+
         break;
-      case isEventMinusCircle: onMinusCircleClick();
-        
+      case isEventMinusCircle:
+        onMinusCircleClick();
+
         break;
-      case isEventOutlineSwap: onOutlineSwapClick();
-        
+      case isEventOutlineSwap:
+        onOutlineSwapClick();
+
         break;
-    
-      default: changeCardIdx();
+
+      case isEventPagination:
+        changeCardIdx();
+        break;
+
+      default:
         break;
     }
+  };
 
-  }
-     
   return (
     <button
       data-action={action}
       className={stylesProp}
       style={{ width: `${widthbtn}`, height: `${heightbtn}` }}
       type={type}
-      // onClick={isEventMinusCircle ? onMinusCircleClick : changeCardIdx}
-       onClick={actionByCardsButton}
-
+      onClick={actionByCardsButton}
     >
       {children}
     </button>
