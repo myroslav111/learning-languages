@@ -23,12 +23,14 @@ import dataForSelect from '../../ui/contentSelect';
 import { useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import apiForUnregisteredUsers from '../../../service/anauthAPI.js';
+
 
 const PageForm = () => {
   const [from, setFrom] = useState('');
   const [to, setTo] = useState('');
 
-  const handleSubmit = event => {
+  const handleSubmit = async event => {
     event.preventDefault();
 
     if (!from || !to) return toast.warn('🦄 Ви повинні додати слово.');
@@ -39,7 +41,14 @@ const PageForm = () => {
       translation: to,
     };
 
-    console.log(newCard);
+    try {
+      await apiForUnregisteredUsers.addCard(newCard);
+      toast.success('🚀 Ми додали слово до ваших карток!');
+
+    } catch (error) {
+      toast.warn('🦄 Помилка при додаванні картки.');      
+    }
+
 
     /** if our user unregistered */
     // if (!email) {
