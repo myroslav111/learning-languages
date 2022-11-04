@@ -37,43 +37,43 @@ import dataForSelect from '../../ui/contentSelect';
 // import englishWordsTest from '../../../../englishWordsTest.json';
 // import germanWordsTest from '../../../../germanWordsTest.json';
 // import { getCardsByCurrentLanguage } from './pageCardsFunctions';
-import { getCardsByCurrentLanguage, removeCardFromCurrentSession } from './pageCardsFunctions';
+import {
+  getCardsByCurrentLanguage,
+  removeCardFromCurrentSession,
+} from './pageCardsFunctions';
 import { useState, useEffect } from 'react';
 
 const PageCards = ({ unauthCardsArrProp }) => {
   const [englishCards, setEnglishCards] = useState([]);
   const [germanCards, setGermanCards] = useState([]);
-  const [cardIndex, setCardIndex] = useState(0);                 // индекс текущей карточки
-  const [currentLanguage, setCurrentLanguage] = useState('de');  // текущий язык
-  const [currentCard, setCurrentCard] = useState({});                      // текущая карточка
+  const [cardIndex, setCardIndex] = useState(0); // индекс текущей карточки
+  const [currentLanguage, setCurrentLanguage] = useState('de'); // текущий язык
+  const [currentCard, setCurrentCard] = useState({}); // текущая карточка
   const [unauthCards, setUnauthCards] = useState(unauthCardsArrProp); // массив слов неавторизированного пользователя
   const [isUser, setIsUser] = useState(false); // авторизирован ли пользователь
   const [isWordSide, setIsWordSide] = useState(true);
 
- 
-
   // отображает перевод слова
   const reverseCard = () => {
-    console.log("reverseCard");
-  }
+    console.log('reverseCard');
+  };
 
   // удаляет слово безвлсвратно из БД
   const delWordFromDataBase = () => {
-    console.log("delWordFromDataBase");
-  }
+    console.log('delWordFromDataBase');
+  };
 
   //удаляет слово из текущей сессии для неавторизированных пользователей
   const delWordFromCurrentSession = () => {
-    const result = unauthCards.filter(card => card._id !== currentCard._id);  
+    const result = unauthCards.filter(card => card._id !== currentCard._id);
     setUnauthCards(result);
-  }
+  };
 
   // озвучивает слово карточки
   const vocalizeWord = () => {
-    console.log("vocalizeWord");
-  }
+    console.log('vocalizeWord');
+  };
 
-    
   useEffect(() => {
     if (isUser) {
       setCurrentCard(
@@ -98,8 +98,14 @@ const PageCards = ({ unauthCardsArrProp }) => {
 
       <MainContent stylesProp={wrapp}>
         <Heading tag="h1" text="Картка" />
-        <div className={isWordSide ? card : cardReverse} onClick={()=>setIsWordSide(prevState=>!prevState)}>
-          <Card textForeign={currentCard.word} textTranslation={currentCard.translation} >
+        <div
+          className={isWordSide ? card : cardReverse}
+          onClick={() => setIsWordSide(prevState => !prevState)}
+        >
+          <Card
+            textForeign={currentCard.word}
+            textTranslation={currentCard.translation}
+          >
             <Button
               stylesProp={soundBtn}
               onOutlineNotificationClick={vocalizeWord}
@@ -112,7 +118,7 @@ const PageCards = ({ unauthCardsArrProp }) => {
               stylesProp={deleteBtn}
               onOutlineDeleteClick={delWordFromDataBase}
               isEventOutlineDelete={true}
-            >              
+            >
               <AiOutlineDelete />
             </Button>
 
@@ -133,7 +139,6 @@ const PageCards = ({ unauthCardsArrProp }) => {
             >
               <AiOutlineSwap />
             </Button>
-
           </Card>
         </div>
 
@@ -149,6 +154,7 @@ const PageCards = ({ unauthCardsArrProp }) => {
                   heightbtn={height}
                   action={action}
                   idxCard={setCardIndex}
+                  isEventPagination={true}
                   arrCards={
                     isUser
                       ? getCardsByCurrentLanguage(
@@ -165,9 +171,8 @@ const PageCards = ({ unauthCardsArrProp }) => {
               )
             )}
           </div>
-          <span style={{fontSize:30}}>CurrentCardIndex: {cardIndex}</span>
-          <span style={{fontSize:30}}>AllCards: {unauthCards.length}</span>
-
+          <span style={{ fontSize: 30 }}>CurrentCardIndex: {cardIndex}</span>
+          <span style={{ fontSize: 30 }}>AllCards: {unauthCards.length}</span>
         </div>
       </MainContent>
 
