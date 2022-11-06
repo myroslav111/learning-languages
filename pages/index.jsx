@@ -2,7 +2,7 @@ import Head from 'next/head';
 import PageForm from '../app/component/screens/PageForm/PageForm';
 
 
-export default function Home() {
+export default function Home({prop}) {
   // const postReg = async () => {
   //   const data = await fetch('http://localhost:3000/api/users/register', {
   //     method: 'POST', // or 'PUT'

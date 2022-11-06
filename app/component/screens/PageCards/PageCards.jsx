@@ -42,16 +42,18 @@ import {
   removeCardFromCurrentSession,
 } from './pageCardsFunctions';
 import { useState, useEffect } from 'react';
+import apiForUnregisteredUsers from '../../../service/anauthAPI';
 
-const PageCards = ({ unauthCardsArrProp }) => {
+const PageCards = ({ cardsArrProp }) => {
   const [englishCards, setEnglishCards] = useState([]);
   const [germanCards, setGermanCards] = useState([]);
   const [cardIndex, setCardIndex] = useState(0); // индекс текущей карточки
   const [currentLanguage, setCurrentLanguage] = useState('de'); // текущий язык
   const [currentCard, setCurrentCard] = useState({}); // текущая карточка
-  const [unauthCards, setUnauthCards] = useState(unauthCardsArrProp); // массив слов неавторизированного пользователя
+  const [unauthCards, setUnauthCards] = useState(cardsArrProp); // массив слов неавторизированного пользователя
   const [isUser, setIsUser] = useState(false); // авторизирован ли пользователь
   const [isWordSide, setIsWordSide] = useState(true);
+  console.log('unauthCards', unauthCards);
 
   // отображает перевод слова
   const reverseCard = () => {
@@ -59,8 +61,9 @@ const PageCards = ({ unauthCardsArrProp }) => {
   };
 
   // удаляет слово безвлсвратно из БД
-  const delWordFromDataBase = () => {
-    console.log('delWordFromDataBase');
+  const delWordFromDataBase = async () => {
+    await apiForUnregisteredUsers.deleteCard(currentCard._id);
+    delWordFromCurrentSession();
   };
 
   //удаляет слово из текущей сессии для неавторизированных пользователей

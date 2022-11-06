@@ -1,8 +1,10 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useRouter } from 'next/router';
 import '../styles/globals.scss';
+import { useState } from 'react';
 /** w */
 function MyApp({ Component, pageProps }) {
+  const [isUser, setIsUser] = useState(false);
   const router = useRouter();
   return (
     <AnimatePresence exitBeforeEnter>
@@ -28,7 +30,7 @@ function MyApp({ Component, pageProps }) {
           },
         }}
       >
-        <Component {...pageProps} />
+        <Component {...pageProps} propIsUser={isUser} />
       </motion.div>
     </AnimatePresence>
   );
