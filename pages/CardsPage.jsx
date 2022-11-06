@@ -1,7 +1,9 @@
 import Head from 'next/head';
 import PageCards from '../app/component/screens/PageCards/PageCards';
 
-const CardsPage = ({ unauthCardsArr }) => {
+const CardsPage = ({ unauthCardsArr, cardsArr, propIsUser }) => {
+  console.log('isUser', cardsArr);
+
   return (
     <div>
       <Head>
@@ -9,7 +11,7 @@ const CardsPage = ({ unauthCardsArr }) => {
         <meta name="description" content="Here are word cards" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <PageCards unauthCardsArrProp={unauthCardsArr} />
+      <PageCards cardsArrProp={propIsUser ? cardsArr : unauthCardsArr} />
     </div>
   );
 };
@@ -20,11 +22,15 @@ export async function getStaticProps() {
   const res = await fetch('http://localhost:3000/api/unauthCards');
   const unauthCardsArr = await res.json();
 
+  const response = await fetch('http://localhost:3000/api/cards');
+  const cardsArr = await response.json();
+
   // By returning { props: { posts } }, the Blog component
   // will receive `posts` as a prop at build time
   return {
     props: {
       unauthCardsArr,
+      cardsArr,
     },
   };
 }
