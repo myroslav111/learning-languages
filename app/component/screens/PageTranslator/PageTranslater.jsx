@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { AiOutlineSwap } from 'react-icons/ai';
 import Footer from '../../Footer';
 import Header from '../../header';
@@ -36,7 +37,11 @@ import {
 import { select } from '../../../../styles/SelectCurentLeng.module.scss';
 import dataForSelect from '../../ui/contentSelect';
 
+
 const PageTranslator = () => {
+  const [textareaFrom, setTextareaFrom] = useState('');
+  const [textareaTo, setTextareaTo] = useState('');
+
   return (
     <div>
       <Header>
@@ -50,16 +55,26 @@ const PageTranslator = () => {
       >
         <div className={wrapper}>
           <div>
-            {['введіть текст', 'тут буде переклад'].map(text => (
-              <Textarea
-                key={Math.floor(Math.random() * 100)}
+            <Textarea
                 styleWrapperProp={wrapperTextarea}
                 styleTextareaProp={textareaStyle}
                 styleIconProp={icon}
-                placeholder={text}
-              ></Textarea>
-            ))}
+                placeholder={'введіть текст'}
+                setValueTextareaFrom={setTextareaFrom}
+                value={textareaFrom}
+            ></Textarea>
+            
+            <Textarea
+                styleWrapperProp={wrapperTextarea}
+                styleTextareaProp={textareaStyle}
+                styleIconProp={icon}
+                placeholder={'тут буде переклад'}
+                // setValueTextareaFrom={setTextareaFrom}
+                value={textareaTo}
+                disabled={true}
+            ></Textarea>
           </div>
+          
 
           <div className={selects}>
             <SelectLanguage
