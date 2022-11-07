@@ -44,21 +44,23 @@ import {
 import { useState, useEffect } from 'react';
 import apiForUnregisteredUsers from '../../../service/anauthAPI';
 
+
 const PageCards = ({ cardsArrProp }) => {
   const [englishCards, setEnglishCards] = useState([]);
   const [germanCards, setGermanCards] = useState([]);
   const [cardIndex, setCardIndex] = useState(0); // индекс текущей карточки
-  const [currentLanguage, setCurrentLanguage] = useState('de'); // текущий язык
+  const [currentLanguage, setCurrentLanguage] = useState('en'); // текущий язык
   const [currentCard, setCurrentCard] = useState({}); // текущая карточка
   const [unauthCards, setUnauthCards] = useState(cardsArrProp); // массив слов неавторизированного пользователя
   const [isUser, setIsUser] = useState(false); // авторизирован ли пользователь
   const [isWordSide, setIsWordSide] = useState(true);
-  console.log('unauthCards', unauthCards);
+
 
   // отображает перевод слова
   const reverseCard = () => {
     console.log('reverseCard');
   };
+
 
   // удаляет слово безвлсвратно из БД
   const delWordFromDataBase = async () => {
@@ -66,16 +68,31 @@ const PageCards = ({ cardsArrProp }) => {
     delWordFromCurrentSession();
   };
 
+
   //удаляет слово из текущей сессии для неавторизированных пользователей
   const delWordFromCurrentSession = () => {
     const result = unauthCards.filter(card => card._id !== currentCard._id);
     setUnauthCards(result);
   };
 
+  
   // озвучивает слово карточки
   const vocalizeWord = () => {
-    console.log('vocalizeWord');
+  const synth = window.speechSynthesis;
+  // останавливает все, что уже синтезируется
+  synth.cancel();
+  // функция чтения текста
+  const utterance = new SpeechSynthesisUtterance(currentCard.word);
+  // вызывается функция подбора языка озвучки
+  if (currentLanguage === 'en') {
+    utterance.lang = 'en-US';
+  } else {
+    utterance.lang = 'de';
+    }
+  // озвучивает слово
+  synth.speak(utterance);
   };
+
 
   useEffect(() => {
     if (isUser) {
@@ -87,6 +104,7 @@ const PageCards = ({ cardsArrProp }) => {
     }
     setCurrentCard(unauthCards[cardIndex]);
   }, [cardIndex, currentLanguage, unauthCards]);
+
 
   return (
     <div>
