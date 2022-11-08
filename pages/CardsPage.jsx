@@ -19,10 +19,10 @@ const CardsPage = ({ unauthCardsArr, cardsArr, propIsUser }) => {
 export async function getStaticProps() {
   // Call an external API endpoint to get posts.
   // You can use any data fetching library
-  const res = await fetch('http://localhost:3000/api/unauthCards');
+  const res = await fetch('http://localhost:4000/api/unauthCards');
   const unauthCardsArr = await res.json();
 
-  const response = await fetch('http://localhost:3000/api/cards');
+  const response = await fetch('http://localhost:4000/api/cards');
   const cardsArr = await response.json();
 
   // By returning { props: { posts } }, the Blog component
