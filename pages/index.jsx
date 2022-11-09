@@ -4,7 +4,7 @@ import PageForm from '../app/component/screens/PageForm/PageForm';
 
 export default function Home({prop}) {
   // const postReg = async () => {
-  //   const data = await fetch('http://localhost:3000/api/users/register', {
+  //   const data = await fetch('http://localhost:4000/api/users/register', {
   //     method: 'POST', // or 'PUT'
   //     headers: {
   //       'Content-Type': 'application/json',
@@ -20,7 +20,7 @@ export default function Home({prop}) {
   // get();
 
   // const postLog = async () => {
-  //   const data = await fetch('http://localhost:3000/api/users/login', {
+  //   const data = await fetch('http://localhost:4000/api/users/login', {
   //     method: 'POST', // or 'PUT'
   //     headers: {
   //       'Content-Type': 'application/json',
@@ -35,7 +35,7 @@ export default function Home({prop}) {
   // postLog();
 
   // const postAdd = async () => {
-  //   const data = await fetch('http://localhost:3000/api/cards', {
+  //   const data = await fetch('http://localhost:4000/api/cards', {
   //     method: 'POST', // or 'PUT'
   //     headers: new Headers({
   //       'Content-Type': 'application/json',
